@@ -16,7 +16,7 @@ public partial class DbsistAnContext : DbContext
     {
     }
 
-    public virtual DbSet<Categorium> Categoria { get; set; }
+    public virtual DbSet<Categoria> Categoria { get; set; }
 
     public virtual DbSet<DetallePedido> DetallePedidos { get; set; }
 
@@ -38,7 +38,7 @@ public partial class DbsistAnContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Categorium>(entity =>
+        modelBuilder.Entity<Categoria>(entity =>
         {
             entity.HasKey(e => e.IdCategoria).HasName("PK__Categori__8A3D240CA2A29E75");
 

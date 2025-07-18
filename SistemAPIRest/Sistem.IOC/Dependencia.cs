@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Sistem.DAL.DBContext;
+using Sistem.DAL.Implementacion;
+using Sistem.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +16,12 @@ namespace Sistem.IOC
     {
         public static void InyectarDependencias(this IServiceCollection services,IConfiguration configuration) {
 
-            services.AddDbContext<DbContext>(options =>{
+            services.AddDbContext<DbsistAnContext>(options =>{
                 options.UseSqlServer(configuration.GetConnectionString("CadenaSQL"));
             });
+
+            services.AddTransient(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+            services.AddScoped<IPedidoRepository, PedidoRepository>();
         }
     }
 }
