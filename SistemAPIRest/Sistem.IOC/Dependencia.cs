@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Mapster;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Sistem.DAL.DBContext;
 using Sistem.DAL.Implementacion;
 using Sistem.DAL.Interfaces;
+using Sistem.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +24,9 @@ namespace Sistem.IOC
 
             services.AddTransient(typeof(IGenericRepository<>),typeof(GenericRepository<>));
             services.AddScoped<IPedidoRepository, PedidoRepository>();
+            services.AddMapster();
+
+            MappingConfig.RegisterMapping(TypeAdapterConfig.GlobalSettings);
         }
     }
 }
