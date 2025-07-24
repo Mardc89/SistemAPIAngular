@@ -25,14 +25,14 @@ namespace Sistem.Helpers
             #region Usuario
             config.NewConfig<Usuario, UsuarioDTO>()
                 .Map(dest => dest.RolDescripcion, src => src.IdRolNavigation.Nombre)
-                .Map(dest => dest.EsActivo, src => src.EsActivo==true? 1:0);
+                .Map(dest => dest.EsActivo, src => src.EsActivo == true ? 1 : 0);
 
             config.NewConfig<Usuario, SesionDTO>().
                 Map(dest => dest.RolDescripcion, src => src.IdRolNavigation.Nombre);
 
             config.NewConfig<UsuarioDTO, Usuario>()
                 .Ignore(dest => dest.IdRolNavigation)
-                .Map(dest => dest.EsActivo, src => src.EsActivo ==1?true:false);
+                .Map(dest => dest.EsActivo, src => src.EsActivo == 1 ? true : false);
             #endregion
 
             #region Categoria            
@@ -44,12 +44,12 @@ namespace Sistem.Helpers
             config.NewConfig<Producto, ProductoDTO>()
                 .Map(dest => dest.DescripcionCategoria, src => src.IdCategoriaNavigation.Nombre)
                 .Map(dest => dest.Precio, src => Convert.ToString(src.Precio.Value, new CultureInfo("es-PE")))
-                .Map(dest=>dest.EsActivo,src=>src.EsActivo==true?1:0);
+                .Map(dest => dest.EsActivo, src => src.EsActivo == true ? 1 : 0);
 
             config.NewConfig<ProductoDTO, Producto>()
                 .Ignore(dest => dest.IdCategoriaNavigation)
                 .Map(dest => dest.Precio, src => Convert.ToDecimal(src.Precio, new CultureInfo("es-PE")))
-                .Map(dest => dest.EsActivo, src => src.EsActivo == 1 ? true :false);
+                .Map(dest => dest.EsActivo, src => src.EsActivo == 1 ? true : false);
             #endregion
 
             #region Pedido
@@ -58,7 +58,28 @@ namespace Sistem.Helpers
                 .Map(dest => dest.FechaRegistro, src => src.FechaRegistro.Value.ToString("dd/MM/yyyy"));
 
             config.NewConfig<PedidoDTO, Pedido>()
-                .Map(dest => dest.Total, src => Convert.ToDecimal(src.TotalTexto.Value, new CultureInfo("es-PE")));
+                .Map(dest => dest.Total, src => Convert.ToDecimal(src.TotalTexto, new CultureInfo("es-PE")));
+            #endregion
+
+            #region DetallePedido
+            config.NewConfig<DetallePedido, DetallePedidoDTO>()
+                .Map(dest => dest.DescripcionProducto, src => src.IdProductoNavigation.Nombre)
+                .Map(dest => dest.PrecioTexto, src => Convert.ToString(src.Precio.Value, new CultureInfo("es-PE")))
+                .Map(dest => dest.TotalTexto, src => Convert.ToString(src.Total.Value, new CultureInfo("es-PE")));
+
+            config.NewConfig<DetallePedidoDTO, DetallePedido>()
+                 .Map(dest => dest.Precio, src => Convert.ToDecimal(src.PrecioTexto, new CultureInfo("es-PE")))
+                 .Map(dest => dest.Total, src => Convert.ToDecimal(src.TotalTexto, new CultureInfo("es-PE")));
+            #endregion
+
+            #region Reporte
+            config.NewConfig<DetallePedido, ReporteDTO>()
+                .Map(dest => dest.FechaRegistro, src => src.IdPedidoNavigation.FechaRegistro.Value.ToString("dd/MM/yyyy"))
+                .Map(dest => dest.NumeroDocumento, src => src.IdPedidoNavigation.Numerodocumento)
+                .Map(dest => dest.TotalPedido, src => Convert.ToString(src.IdPedidoNavigation.Total.Value, new CultureInfo("es-PE")))
+                .Map(dest => dest.Producto, src => src.IdProductoNavigation.Nombre)
+                .Map(dest => dest.Precio, src => Convert.ToString(src.Precio.Value, new CultureInfo("es-PE")))
+                .Map(dest => dest.Total, src => Convert.ToString(src.IdPedidoNavigation.Total.Value, new CultureInfo("es-PE")));
             #endregion
         }
     }

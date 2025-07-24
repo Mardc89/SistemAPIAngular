@@ -12,4 +12,9 @@
     <ProjectReference Include="..\Sistem.Model\Sistem.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Implementacion\" />
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
 </Project>
