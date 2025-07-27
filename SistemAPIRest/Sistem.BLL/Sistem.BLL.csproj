@@ -9,12 +9,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Sistem.DAL\Sistem.DAL.csproj" />
     <ProjectReference Include="..\Sistem.DTO\Sistem.DTO.csproj" />
+    <ProjectReference Include="..\Sistem.Helpers\Sistem.Helpers.csproj" />
     <ProjectReference Include="..\Sistem.Model\Sistem.Model.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Implementacion\" />
-    <Folder Include="Interfaces\" />
   </ItemGroup>
 
 </Project>
