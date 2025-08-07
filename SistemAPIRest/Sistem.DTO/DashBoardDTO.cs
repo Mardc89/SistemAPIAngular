@@ -10,6 +10,7 @@ namespace Sistem.DTO
     {
         public int TotalPedidos { get; set; }
         public string? ToTalIngresos { get; set; }
+        public int ToTalProductos { get; set; }
 
         public List<PedidosSemanaDTO> PedidosUltimaSemana { get; set; }
     }

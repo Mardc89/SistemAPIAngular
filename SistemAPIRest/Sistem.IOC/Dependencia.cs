@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Sistem.BLL.Implementacion;
+using Sistem.BLL.Interfaces;
 using Sistem.DAL.DBContext;
 using Sistem.DAL.Implementacion;
 using Sistem.DAL.Interfaces;
@@ -25,6 +27,14 @@ namespace Sistem.IOC
             services.AddTransient(typeof(IGenericRepository<>),typeof(GenericRepository<>));
             services.AddScoped<IPedidoRepository, PedidoRepository>();
             services.AddMapster();
+
+            services.AddScoped<IRolService,RolService>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
+            services.AddScoped<ICategoriaService, CategoriaService>();
+            services.AddScoped<IProductoService, ProductoService>();
+            services.AddScoped<IPedidoService, PedidoService>();
+            services.AddScoped<IDashBoardService, DashBoardService>();
+            services.AddScoped<IMenuService, MenuService>();
 
             MappingConfig.RegisterMapping(TypeAdapterConfig.GlobalSettings);
         }
