@@ -1,0 +1,17 @@
+<mat-card class="login-card">
+    <form [formGroup]="formularioLogin" (ngSubmit)="IniciarSesion()">
+      <h2>Iniciar Sesión</h2>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input [type]="ocultarPassword?'password':'text'" 
+        formControlName="password" matInput/>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Entrar</button>
+    </form>
+  </mat-card>

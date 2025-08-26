@@ -1,0 +1,53 @@
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1>Sistema de Pedidos</h1>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav opened="true" mode="side" style="width: 200px;">
+    <mat-nav-list>
+
+      <mat-list-item routerLink="/pages/dash-board">
+        <mat-icon mat-list-icon>dashboard</mat-icon>
+        <div mat-line>DashBoard</div>
+      </mat-list-item>
+
+      <a mat-list-item routerLink="/pages/categoria">
+        <mat-icon matListIcon>category</mat-icon>
+        <span matLine>Categorías</span>
+      </a>
+
+      <a mat-list-item routerLink="/pages/pedido">
+        <mat-icon matListIcon>receipt</mat-icon>
+        <span matLine>Pedidos</span>
+      </a>
+
+      <a mat-list-item routerLink="/pages/producto">
+        <mat-icon matListIcon>widgets</mat-icon>
+        <span matLine>Productos</span>
+      </a>
+
+      <a mat-list-item routerLink="/pages/reporte">
+        <mat-icon matListIcon>bar_chart</mat-icon>
+        <span matLine>Reportes</span>
+      </a>
+
+      <mat-list-item routerLink="/pages/usuario">
+        <mat-icon mat-list-icon>group</mat-icon>
+        <span mat-line>Usuarios</span>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div style="height: 90vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

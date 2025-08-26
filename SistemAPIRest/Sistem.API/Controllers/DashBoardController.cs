@@ -9,25 +9,25 @@ namespace Sistem.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriaController : ControllerBase
+    public class DashBoardController : ControllerBase
     {
-        private readonly ICategoriaService _categoriaService;
+        private readonly IDashBoardService _dasbordService;
 
-        public CategoriaController(ICategoriaService categoriaService)
+        public DashBoardController(IDashBoardService dasbordService)
         {
-         _categoriaService = categoriaService;
+            _dasbordService = dasbordService;
         }
 
-        [HttpGet]       
-        [Route("Lista")]
-        public async Task <IActionResult> Lista() 
+        [HttpGet]
+        [Route("Resumen")]
+        public async Task<IActionResult> Resumen()
         {
-            var rsp = new Response<List<CategoriaDTO>>();
+            var rsp = new Response<DashBoardDTO>();
 
             try
             {
                 rsp.status = true;
-                rsp.value = await _categoriaService.Lista();
+                rsp.value = await _dasbordService.Resumen();
 
             }
             catch (Exception ex)
