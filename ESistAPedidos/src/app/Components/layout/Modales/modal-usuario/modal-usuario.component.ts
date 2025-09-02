@@ -60,14 +60,11 @@ export class ModalUsuarioComponent implements OnInit{
 
     this.formularioUsuario=this.fb.group({
 
-      nombres:['',Validators.required],
-      apellidos:['',Validators.required],
+      nombreCompleto:['',Validators.required],
       correo:['',Validators.required],
       idRol:['',Validators.required],
       clave:['',Validators.required],
-      estado:['1',Validators.required],
-      dni:['',Validators.required],
-      nombreUsuario:['',Validators.required]
+      esActivo:['1',Validators.required]
       
     });
 
@@ -92,16 +89,11 @@ export class ModalUsuarioComponent implements OnInit{
     if(this.datosUsuario!=null){
 
       this.formularioUsuario.patchValue({
-        nombres:this.datosUsuario.nombres,
-        apellidos:this.datosUsuario.apellidos,
+        nombreCompleto:this.datosUsuario.nombreCompleto,
         correo:this.datosUsuario.correo,
         idRol:this.datosUsuario.idRol,
         clave:this.datosUsuario.clave,
-        estado:this.datosUsuario.estado.toString(),
-        dni:this.datosUsuario.dni,
-        nombreUsuario:this.datosUsuario.nombreUsuario
-       
-
+        esActivo:this.datosUsuario.esActivo.toString()
 
       })
 
@@ -114,16 +106,12 @@ export class ModalUsuarioComponent implements OnInit{
 
     const _usuario:Usuario={
       idUsuario:this.datosUsuario==null?0:this.datosUsuario.idUsuario,
-      dni:this.formularioUsuario.value.dni,
-      nombreUsuario:this.formularioUsuario.value.nombreUsuario,
-      nombres:this.formularioUsuario.value.nombres,
-      apellidos:this.formularioUsuario.value.apellidos,
+      nombreCompleto:this.formularioUsuario.value.nombreCompleto,
       correo:this.formularioUsuario.value.correo,
       idRol:this.formularioUsuario.value.idRol,
       rolDescripcion:"",
       clave:this.formularioUsuario.value.clave,
-      estado:parseInt(this.formularioUsuario.value.estado),
-      fechaRegistro:this.datosUsuario?.fechaRegistro??new Date()
+      esActivo:parseInt(this.formularioUsuario.value.esActivo)
     }
 
     if(this.datosUsuario==null){

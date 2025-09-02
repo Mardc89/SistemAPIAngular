@@ -42,7 +42,7 @@ namespace Sistem.API.Controllers
         }
 
 
-        [HttpGet]
+        [HttpPost]
         [Route("Guardar")]
         public async Task<IActionResult> Guardar([FromBody] ProductoDTO producto)
         {

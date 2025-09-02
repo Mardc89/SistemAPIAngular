@@ -119,7 +119,7 @@ export class UsuarioComponent implements OnInit,AfterViewInit{
 eliminarUsuario(usuario: Usuario) {
   Swal.fire({
     title: '¿Desea eliminar el usuario?', 
-    text: usuario.nombres,
+    text: usuario.nombreCompleto,
     icon: "warning",
     confirmButtonColor: '#3085d6',
     confirmButtonText: "Sí, eliminar",

@@ -41,9 +41,9 @@ namespace Sistem.API.Controllers
 
         }
 
-        [HttpGet]
-        [Route("InciarSesion")]
-        public async Task<IActionResult> InicarSesion([FromBody] LoginDTO login)
+        [HttpPost]
+        [Route("IniciarSesion")]
+        public async Task<IActionResult> IniciarSesion([FromBody] LoginDTO login)
         {
             var rsp = new Response<SesionDTO>();
 
@@ -64,7 +64,7 @@ namespace Sistem.API.Controllers
 
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("Guardar")]
         public async Task<IActionResult> Guardar([FromBody] UsuarioDTO usuario)
         {
