@@ -1,16 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../../../../Models/Producto';
 import { DetallePedido } from '../../../../Models/DetallePedido';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { ProductoService } from '../../../../Services/producto.service';
 import { PedidoService } from '../../../../Services/pedido.service';
 import { UtilidadService } from '../../../../Reutilizable/utilidad.service';
 import { Pedido } from '../../../../Models/Pedido';
-
+import { MatCardModule } from '@angular/material/card';
+import Swal from 'sweetalert2';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridList } from "@angular/material/grid-list";
+import { MatGridListModule } from '@angular/material/grid-list';
+import {MatAutocompleteModule} from  '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
 @Component({
   selector: 'app-pedido',
-  imports: [],
+  imports: [
+    MatCardModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatGridList,
+    MatGridListModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatOptionModule
+
+],
   templateUrl: './pedido.component.html',
   styleUrl: './pedido.component.css'
 })
@@ -132,6 +149,30 @@ export class PedidoComponent implements OnInit{
         totalTexto:String(this.totalPagar.toFixed(2)),
         detallePedido:this.listaProductosParaPedido
       }
+
+      this._pedidoServicio.registrar(request).subscribe({
+          next:(response)=>{
+            if(response.status){
+                this.totalPagar=0.00;
+                this.listaProductosParaPedido=[];
+                this.datosDetallePedido=new MatTableDataSource(this.listaProductosParaPedido);
+
+                Swal.fire({
+                  icon:'success',
+                  title:'Pedido Registrado',
+                  text:`Numero de Pedido:${response.value.numeroDocumento}`
+
+                })
+            }else
+                this._utilidadServicio.mostrarAlerta("No se registrar el pedido","");
+          },
+          complete:()=>{
+
+            this.bloquearBotonRegistrar=false;
+          },
+          error:(e)=>{}
+
+      })
 
 
     }
