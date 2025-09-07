@@ -15,9 +15,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import {MatAutocompleteModule} from  '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatOptionModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-pedido',
   imports: [
+    CommonModule,
     MatCardModule,
     MatFormFieldModule,
     ReactiveFormsModule,
@@ -25,7 +30,9 @@ import { MatOptionModule } from '@angular/material/core';
     MatGridListModule,
     MatInputModule,
     MatAutocompleteModule,
-    MatOptionModule
+    MatOptionModule,
+    MatIconModule,
+    MatTableModule
 
 ],
   templateUrl: './pedido.component.html',
