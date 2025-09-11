@@ -47,7 +47,7 @@
         </mat-grid-tile>
          </mat-grid-list>  
          
-        <div class="mat-elevation-z2">
+       <div class="mat-elevation-z2">
 
   
       <table mat-table [dataSource]="datosDetallePedido">
@@ -82,7 +82,16 @@
 
       </table>
     </div>
+            <mat-grid-list cols="4" rowHeight="80px">
+              <mat-grid-tile [colspan]="3"></mat-grid-tile>
+              <mat-grid-tile>
+                    <button mat-raised-button color="primary" style="width: 80px;" 
+                    [disabled]="listaProductosParaPedido.length< 1 || bloquearBotonRegistrar"(click)="registrarPedido()">
+                    <mat-icon>new _label</mat-icon>Registrar
+                  </button>
 
+              </mat-grid-tile>
+            </mat-grid-list>
        
 
     </mat-card-content>

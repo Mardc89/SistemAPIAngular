@@ -123,7 +123,7 @@ export class PedidoComponent implements OnInit{
       descripcionProducto:this.productoSeleccionado.nombre,
       cantidad:_cantidad,
       precioTexto:String(_precio.toFixed(2)),
-      totalTexto:String(_precio.toFixed(2))
+      totalTexto:String(_total.toFixed(2))
     })
 
     this.datosDetallePedido=new MatTableDataSource(this.listaProductosParaPedido);
@@ -167,7 +167,7 @@ export class PedidoComponent implements OnInit{
                 Swal.fire({
                   icon:'success',
                   title:'Pedido Registrado',
-                  text:`Numero de Pedido:${response.value.numeroDocumento}`
+                  text:`Numero de Pedido:${response.value.numerodocumento}`
 
                 })
             }else

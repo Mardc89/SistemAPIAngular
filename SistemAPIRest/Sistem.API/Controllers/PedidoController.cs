@@ -45,7 +45,7 @@ namespace Sistem.API.Controllers
 
         [HttpGet]
         [Route("Reporte")]
-        public async Task<IActionResult> Historial(string? fechaInicio, string? fechaFin)
+        public async Task<IActionResult> Reporte(string? fechaInicio, string? fechaFin)
         {
             var rsp = new Response<List<ReporteDTO>>();
 
@@ -68,9 +68,9 @@ namespace Sistem.API.Controllers
 
 
 
-        [HttpGet]
-        [Route("Registar")]
-        public async Task<IActionResult> Guardar([FromBody] PedidoDTO pedido)
+        [HttpPost]
+        [Route("Registrar")]
+        public async Task<IActionResult> Registrar([FromBody] PedidoDTO pedido)
         {
             var rsp = new Response<PedidoDTO>();
 
