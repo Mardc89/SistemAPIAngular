@@ -7,4 +7,5 @@ export const layoutRoutes: Routes = [
   { path: 'pedido',      loadComponent: () => import('./Pages/pedido/pedido.component').then(m => m.PedidoComponent) },
   { path: 'usuario',     loadComponent: () => import('./Pages/usuario/usuario.component').then(m => m.UsuarioComponent) },
   { path: 'reporte',     loadComponent: () => import('./Pages/reporte/reporte.component').then(m => m.ReporteComponent) },
+    { path: 'historial-pedido',     loadComponent: () => import('./Pages/historial-pedido/historial-pedido.component').then(m => m.HistorialPedidoComponent) },
 ];
