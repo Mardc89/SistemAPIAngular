@@ -58,13 +58,13 @@ namespace Sistem.BLL.Implementacion
 
                     ListaResultado = await query.Where(u =>u.FechaRegistro.Value.Date >= fechInicio.Date &&
                      u.FechaRegistro.Value.Date <= fechFin.Date
-                     ).Include(m => m.DetallePedidos).ThenInclude(p => p.IdPedidoNavigation)
+                     ).Include(m => m.DetallePedidos).ThenInclude(p => p.IdProductoNavigation)
                      .ToListAsync();
                 }
                 else
                 {
                     ListaResultado = await query.Where(u => u.Numerodocumento==numeroPedido)
-                    .Include(m => m.DetallePedidos).ThenInclude(p => p.IdPedidoNavigation)
+                    .Include(m => m.DetallePedidos).ThenInclude(p => p.IdProductoNavigation)
                     .ToListAsync();
 
                 }

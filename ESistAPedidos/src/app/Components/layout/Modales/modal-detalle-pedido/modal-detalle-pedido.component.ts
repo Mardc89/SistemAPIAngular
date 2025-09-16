@@ -32,18 +32,18 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class ModalDetallePedidoComponent implements OnInit {
   fechaRegistro:string="";
-  numeroDocumento:string="";
+  numerodocumento:string="";
   total:string="";
-  detallePedido:DetallePedido[]=[];
+  detallePedidos:DetallePedido[]=[];
   columnasTabla:string[]=['producto','cantidad','precio','total']
 
 
 
   constructor(@Inject(MAT_DIALOG_DATA)public _pedido:Pedido ){
-    this.fechaRegistro=_pedido.fechaPedido!;
-    this.numeroDocumento=_pedido.numeroDocumento!;
+    this.fechaRegistro=_pedido.fechaRegistro!;
+    this.numerodocumento=_pedido.numerodocumento!;
     this.total=_pedido.totalTexto;
-    this.detallePedido=_pedido.detallePedido;
+    this.detallePedidos=_pedido.detallePedidos;
 
   }
 

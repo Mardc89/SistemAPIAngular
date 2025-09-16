@@ -22,9 +22,9 @@ import {MatDatepickerModule}from '@angular/material/datepicker';
 import { CommonModule } from '@angular/common';
 import { MatButton } from "@angular/material/button";
 import { MatIcon } from '@angular/material/icon';
-import { MatDivider } from "@angular/material/divider";
 import { MatTableModule } from '@angular/material/table';
 import { MatDividerModule } from '@angular/material/divider';
+import{MatMomentDateModule} from '@angular/material-moment-adapter'
 
 
 
@@ -36,6 +36,7 @@ export const MY_DATA_FORMATS={
   display:{
     dateInput:'DD/MM/YYYY',
     monthYearLabel:'MMMMM YYYY'
+
   }
 
 
@@ -49,13 +50,14 @@ export const MY_DATA_FORMATS={
     MatSelectModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule,
     CommonModule,
     MatButton,
     MatIcon,
     MatTableModule,
     MatPaginator,
-    MatDividerModule
+    MatDividerModule,
+    MatNativeDateModule,
+    MatMomentDateModule
 ],
   templateUrl: './historial-pedido.component.html',
   styleUrl: './historial-pedido.component.css',
@@ -122,7 +124,7 @@ ngOnInit(): void {
   let _fechaInicio:string="";
   let _fechaFin:string="";
 
-  if(this.formularioBusqueda.value.buscaPor==="fecha"){
+  if(this.formularioBusqueda.value.buscarPor==="fecha"){
     _fechaInicio=moment(this.formularioBusqueda.value.fechaInicio).format('DD/MM/YYYY');
     _fechaFin=moment(this.formularioBusqueda.value.fechaFin).format('DD/MM/YYYY');
 
@@ -133,7 +135,7 @@ ngOnInit(): void {
   }
 
   this._pedidoServicio.historial(
-    this.formularioBusqueda.value.buscaPor,
+    this.formularioBusqueda.value.buscarPor,
     this.formularioBusqueda.value.numero,
     _fechaInicio,
     _fechaFin

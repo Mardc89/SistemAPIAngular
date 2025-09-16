@@ -20,8 +20,8 @@ export class PedidoService {
       return this.http.post<ResponseApi>(`${this.urlApi}Registrar`,request)
     }
   
-    historial(buscarPor:string,codigo:string,fechaInicio:string,fechaFin:string):Observable<ResponseApi>{
-        return this.http.get<ResponseApi>(`${this.urlApi}Historial?buscarPor=${buscarPor}&codigo=${codigo}&fechaInicio=${fechaInicio}&=${fechaFin}`)
+    historial(buscarPor:string,numeroPedido:string,fechaInicio:string,fechaFin:string):Observable<ResponseApi>{
+        return this.http.get<ResponseApi>(`${this.urlApi}Historial?buscarPor=${buscarPor}&numeroPedido=${numeroPedido}&fechaInicio=${fechaInicio}&fechaFin=${fechaFin}`)
     }
 
     reporte(fechaInicio:string,fechaFin:string):Observable<ResponseApi>{

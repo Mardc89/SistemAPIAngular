@@ -5,8 +5,8 @@ import { DetallePedido } from "./DetallePedido"
 
 export interface Pedido {
     idPedido?:number,
-    numeroDocumento?:string,
-    fechaPedido?:string,
+    numerodocumento?:string,
+    fechaRegistro?:string,
     totalTexto:string,
-    detallePedido:DetallePedido[]
+    detallePedidos:DetallePedido[]
 }

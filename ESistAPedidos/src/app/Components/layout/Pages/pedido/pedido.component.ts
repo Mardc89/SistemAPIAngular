@@ -154,7 +154,7 @@ export class PedidoComponent implements OnInit{
 
       const request:Pedido={
         totalTexto:String(this.totalPagar.toFixed(2)),
-        detallePedido:this.listaProductosParaPedido
+        detallePedidos:this.listaProductosParaPedido
       }
 
       this._pedidoServicio.registrar(request).subscribe({

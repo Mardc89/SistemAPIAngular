@@ -16,6 +16,6 @@ namespace Sistem.DTO
 
         public string? FechaRegistro { get; set; }
 
-        public virtual ICollection<DetallePedidoDTO> DetallePedido { get;set; }
+        public virtual ICollection<DetallePedidoDTO> DetallePedidos { get;set; }
     }
 }
