@@ -25,7 +25,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatDividerModule } from '@angular/material/divider';
 import{MatMomentDateModule} from '@angular/material-moment-adapter'
-
+import { MatTooltipModule} from '@angular/material/tooltip';
 
 
 
@@ -57,7 +57,8 @@ export const MY_DATA_FORMATS={
     MatPaginator,
     MatDividerModule,
     MatNativeDateModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatTooltipModule
 ],
   templateUrl: './historial-pedido.component.html',
   styleUrl: './historial-pedido.component.css',
