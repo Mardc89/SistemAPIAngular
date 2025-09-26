@@ -7,8 +7,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import { MatPaginator} from '@angular/material/paginator';
 import moment from 'moment';
 
-import { MAT_DATE_FORMATS, NativeDateAdapter, NativeDateModule } from '@angular/material/core';
-import*as XLSX from "xlsx";
+import { MAT_DATE_FORMATS} from '@angular/material/core';
+import* as XLSX from 'xlsx';
 
 import { Reporte } from '../../../../Models/Reporte';
 import { PedidoService } from '../../../../Services/pedido.service';
@@ -26,6 +26,11 @@ import { MatDividerModule } from '@angular/material/divider';
 import{MatMomentDateModule} from '@angular/material-moment-adapter'
 import { MatTooltipModule} from '@angular/material/tooltip';
 import {MatDatepickerModule}from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
+import { CommonModule } from '@angular/common';
+
+
 
 export const MY_DATA_FORMATS={
   parse:{
@@ -54,7 +59,10 @@ export const MY_DATA_FORMATS={
     MatMomentDateModule,
     MatTooltipModule,
     MatDatepickerModule,
-    MatPaginator
+    MatPaginator,
+    CommonModule,
+    MatNativeDateModule
+
 
   ],
   templateUrl: './reporte.component.html',
@@ -67,7 +75,7 @@ export class ReporteComponent implements OnInit{
 
     formularioFiltro:FormGroup;
     listaPedidosReporte:Reporte[]=[];
-    columnasTabla:string[] =['fechaRegistro','numeroPedido','total','producto','cantidad','precio','TotalProducto']; 
+    columnasTabla:string[] =['fechaRegistro','numeroPedido','total','producto','cantidad','precio','totalProducto']; 
     dataInicio:Reporte[]=[];
     dataPedidoReporte=new MatTableDataSource(this.listaPedidosReporte);
     @ViewChild(MatPaginator)paginacionTabla!:MatPaginator;
