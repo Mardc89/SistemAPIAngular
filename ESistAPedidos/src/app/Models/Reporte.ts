@@ -1,5 +1,5 @@
 export interface Reporte {
-    codigo :string,
+    numeroDocumento :string,
     fechaRegistro:string,
     totalPedido:string,
     producto:string,

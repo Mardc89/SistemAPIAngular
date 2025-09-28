@@ -18,16 +18,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 
-import { MatButton } from "@angular/material/button";
-import { MatIcon } from '@angular/material/icon';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatDividerModule } from '@angular/material/divider';
 
 import{MatMomentDateModule} from '@angular/material-moment-adapter'
 import { MatTooltipModule} from '@angular/material/tooltip';
 import {MatDatepickerModule}from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-
 import { CommonModule } from '@angular/common';
 
 
@@ -51,8 +50,8 @@ export const MY_DATA_FORMATS={
     MatCardModule,
     MatSelectModule,
     MatInputModule,
-    MatButton,
-    MatIcon,
+    MatButtonModule,
+    MatIconModule,
     MatTableModule,
     MatDividerModule,
     ReactiveFormsModule,
@@ -60,8 +59,7 @@ export const MY_DATA_FORMATS={
     MatTooltipModule,
     MatDatepickerModule,
     MatPaginator,
-    CommonModule,
-    MatNativeDateModule
+    CommonModule
 
 
   ],

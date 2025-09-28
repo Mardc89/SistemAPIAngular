@@ -39,7 +39,7 @@
 </form>
 
        
-        <button mat-raised-button color="warn" [disabled]="listaPedidosReporte.length<1" (click)="exportarExcel()">
+        <button mat-raised-button color="warn" [disabled]="listaPedidosReporte.length < 1" (click)="exportarExcel()">
             <mat-icon>feed</mat-icon>Exportar Excel
 
         </button>
@@ -56,7 +56,7 @@
 
         <ng-container matColumnDef="numeroPedido">
           <th mat-header-cell *matHeaderCellDef>numeroPedido</th>
-          <td mat-cell *matCellDef="let element">{{element.codigo}}</td>
+          <td mat-cell *matCellDef="let element">{{element.numeroDocumento}}</td>
         </ng-container>
         <ng-container matColumnDef="total">
           <th mat-header-cell *matHeaderCellDef>total</th>

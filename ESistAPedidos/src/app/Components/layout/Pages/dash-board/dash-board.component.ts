@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
+import{charts}
+
+
 @Component({
   selector: 'app-dash-board',
   imports: [CommonModule],

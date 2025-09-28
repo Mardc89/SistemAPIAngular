@@ -17,7 +17,6 @@ import { UtilidadService } from '../../../../Reutilizable/utilidad.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-import { MatNativeDateModule } from '@angular/material/core';
 import {MatDatepickerModule}from '@angular/material/datepicker';
 import { CommonModule } from '@angular/common';
 import { MatButton } from "@angular/material/button";
@@ -56,7 +55,6 @@ export const MY_DATA_FORMATS={
     MatTableModule,
     MatPaginator,
     MatDividerModule,
-    MatNativeDateModule,
     MatMomentDateModule,
     MatTooltipModule
 ],
