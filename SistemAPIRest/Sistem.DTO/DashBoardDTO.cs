@@ -9,8 +9,8 @@ namespace Sistem.DTO
     public class DashBoardDTO
     {
         public int TotalPedidos { get; set; }
-        public string? ToTalIngresos { get; set; }
-        public int ToTalProductos { get; set; }
+        public string? TotalIngresos { get; set; }
+        public int TotalProductos { get; set; }
 
         public List<PedidosSemanaDTO> PedidosUltimaSemana { get; set; }
     }

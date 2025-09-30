@@ -116,8 +116,24 @@ export class PedidoComponent implements OnInit{
     const _precio:number=parseFloat(this.productoSeleccionado.precio);
     const _total:number=_cantidad*_precio;
 
-    this.totalPagar=this.totalPagar+_total;
 
+
+    const productoExiste=this.listaProductosParaPedido.find(
+
+      (p)=>p.idProducto===this.productoSeleccionado.idProducto
+    );
+
+
+    if(productoExiste){
+
+      
+      const nuevaCantidad=productoExiste.cantidad+_cantidad;
+      const nuevoTotal=nuevaCantidad*_precio;
+
+      productoExiste.cantidad=nuevaCantidad;
+      productoExiste.totalTexto=String(nuevoTotal.toFixed(2));
+    }
+    else{
     this.listaProductosParaPedido.push({
       idProducto:this.productoSeleccionado.idProducto,
       descripcionProducto:this.productoSeleccionado.nombre,
@@ -126,6 +142,10 @@ export class PedidoComponent implements OnInit{
       totalTexto:String(_total.toFixed(2))
     })
 
+  }
+    this.totalPagar=this.totalPagar+_total;
+
+    
     this.datosDetallePedido=new MatTableDataSource(this.listaProductosParaPedido);
 
     this.formularioProductoPedido.patchValue({

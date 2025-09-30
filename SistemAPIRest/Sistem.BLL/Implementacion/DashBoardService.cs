@@ -105,8 +105,8 @@ namespace Sistem.BLL.Implementacion
             try
             {
                 dashboardDTO.TotalPedidos = await TotalPedidosUltimaSemana();
-                dashboardDTO.ToTalIngresos = await TotalIngresosUltimaSemana();
-                dashboardDTO.ToTalProductos = await TotalProductos();
+                dashboardDTO.TotalIngresos = await TotalIngresosUltimaSemana();
+                dashboardDTO.TotalProductos = await TotalProductos();
 
                 List<PedidosSemanaDTO> listaPedidosSemana=new List<PedidosSemanaDTO>();
 
