@@ -12,18 +12,18 @@
   <mat-sidenav #sidenav opened="true" mode="side" style="width: 200px;">
     <mat-nav-list>
 
-      <mat-list-item routerLink="/pages/dash-board">
+      <a mat-list-item routerLink="/pages/dash-board">
         <mat-icon mat-list-icon>dashboard</mat-icon>
-        <div mat-line>DashBoard</div>
-      </mat-list-item>
+        <span mat-line>DashBoard</span>
+      </a>
 
       <a mat-list-item routerLink="/pages/categoria">
-        <mat-icon matListIcon>category</mat-icon>
+        <mat-icon mat-list-icon>category</mat-icon>
         <span matLine>Categorías</span>
       </a>
 
       <a mat-list-item routerLink="/pages/pedido">
-        <mat-icon matListIcon>receipt</mat-icon>
+        <mat-icon mat-list-icon>receipt</mat-icon>
         <span matLine>Pedidos</span>
       </a>
 
@@ -42,10 +42,10 @@
         <span matLine>Reportes</span>
       </a>
 
-      <mat-list-item routerLink="/pages/usuario">
+      <a mat-list-item routerLink="/pages/usuario">
         <mat-icon mat-list-icon>group</mat-icon>
         <span mat-line>Usuarios</span>
-      </mat-list-item>
+      </a>
 
     </mat-nav-list>
   </mat-sidenav>
