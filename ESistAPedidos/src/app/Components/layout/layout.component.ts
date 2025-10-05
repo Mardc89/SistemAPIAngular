@@ -69,7 +69,7 @@ constructor(private router:Router,private _menuServicio:MenuService,private _uti
   cerrarSesion(){
 
     this._utilidadService.eliminarSesionUsuario();
-    this.router.navigate(['login']);
+    this.router.navigate(['login'],{replaceUrl:true});
   }
 
 }
