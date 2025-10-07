@@ -21,3 +21,10 @@ table{
 
     width: 100%;
 }
+
+.acciones{
+
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
