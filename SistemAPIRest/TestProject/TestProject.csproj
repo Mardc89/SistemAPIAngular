@@ -21,7 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Helpers\" />
+    <ProjectReference Include="..\Sistem.DTO\Sistem.DTO.csproj" />
+    <ProjectReference Include="..\Sistem.Helpers\Sistem.Helpers.csproj" />
   </ItemGroup>
 
 </Project>
